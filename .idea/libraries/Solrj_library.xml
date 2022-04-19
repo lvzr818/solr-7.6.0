@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Solrj library">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/solr/solrj/lib" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ideaLibSources/slf4j-api-1.7.24-sources.jar!/" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/solr/solrj/lib" recursive="true" />
+  </library>
+</component>

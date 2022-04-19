@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="Solr example library">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/solr/server/lib" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ideaLibSources/javax.servlet-api-3.1.0-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.ideaLibSources/jetty-servlet-9.4.11.v20180605-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.ideaLibSources/jetty-server-9.4.11.v20180605-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.ideaLibSources/jetty-util-9.4.11.v20180605-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.ideaLibSources/slf4j-api-1.7.24-sources.jar!/" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/solr/server/lib" recursive="true" />
+  </library>
+</component>

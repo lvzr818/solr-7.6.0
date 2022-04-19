@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Solr core library">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/solr/core/lib" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ideaLibSources/log4j-slf4j-impl-2.11.0-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.ideaLibSources/log4j-api-2.11.0-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.ideaLibSources/log4j-1.2-api-2.11.0-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.ideaLibSources/log4j-core-2.11.0-sources.jar!/" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/solr/core/lib" recursive="false" />
+  </library>
+</component>
