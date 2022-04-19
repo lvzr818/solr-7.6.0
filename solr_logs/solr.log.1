@@ -1,0 +1,75 @@
+2022-04-08 11:30:35.737 INFO  (main) [   ] o.e.j.u.log Logging initialized @1509ms to org.eclipse.jetty.util.log.Slf4jLog
+2022-04-08 11:30:36.014 INFO  (main) [   ] o.e.j.s.Server jetty-9.4.11.v20180605; built: 2018-06-05T18:24:03.829Z; git: d5fc0523cfa96bfebfbda19606cad384d772f04c; jvm 1.8.0_301-b09
+2022-04-08 11:30:37.166 INFO  (main) [   ] o.e.j.w.StandardDescriptorProcessor NO JSP Support for /solr, did not find org.eclipse.jetty.jsp.JettyJspServlet
+2022-04-08 11:30:37.181 INFO  (main) [   ] o.e.j.s.session DefaultSessionIdManager workerName=node0
+2022-04-08 11:30:37.181 INFO  (main) [   ] o.e.j.s.session No SessionScavenger set, using defaults
+2022-04-08 11:30:37.184 INFO  (main) [   ] o.e.j.s.session node0 Scavenging every 660000ms
+2022-04-08 11:30:37.298 INFO  (main) [   ] o.a.s.u.c.SSLCredentialProviderFactory Processing SSL Credential Provider chain: env;sysprop
+2022-04-08 11:30:37.336 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter Using logger factory org.apache.logging.slf4j.Log4jLoggerFactory
+2022-04-08 11:30:37.343 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter  ___      _       Welcome to Apache Solr™ version 7.6.0
+2022-04-08 11:30:37.343 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter / __| ___| |_ _   Starting in standalone mode on port null
+2022-04-08 11:30:37.343 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter \__ \/ _ \ | '_|  Install dir: E:\OpenSource\zip\solr-7.6.0
+2022-04-08 11:30:37.344 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter |___/\___/_|_|    Start time: 2022-04-08T03:30:37.344Z
+2022-04-08 11:30:37.380 INFO  (main) [   ] o.a.s.c.SolrResourceLoader Using system property solr.solr.home: E:\epwk-storage\dev\solr_home\7_6_0
+2022-04-08 11:30:37.389 INFO  (main) [   ] o.a.s.c.SolrXmlConfig Loading container configuration from E:\epwk-storage\dev\solr_home\7_6_0\solr.xml
+2022-04-08 11:30:37.465 INFO  (main) [   ] o.a.s.c.SolrXmlConfig MBean server found: com.sun.jmx.mbeanserver.JmxMBeanServer@b62d79, but no JMX reporters were configured - adding default JMX reporter.
+2022-04-08 11:30:48.696 INFO  (main) [   ] o.a.s.c.TransientSolrCoreCacheDefault Allocating transient cache for 2147483647 transient cores
+2022-04-08 11:30:48.700 INFO  (main) [   ] o.a.s.h.a.MetricsHistoryHandler No .system collection, keeping metrics history in memory.
+2022-04-08 11:30:48.803 INFO  (main) [   ] o.a.s.m.r.SolrJmxReporter JMX monitoring for 'solr.node' (registry 'solr.node') enabled at server: com.sun.jmx.mbeanserver.JmxMBeanServer@b62d79
+2022-04-08 11:30:48.805 INFO  (main) [   ] o.a.s.m.r.SolrJmxReporter JMX monitoring for 'solr.jvm' (registry 'solr.jvm') enabled at server: com.sun.jmx.mbeanserver.JmxMBeanServer@b62d79
+2022-04-08 11:30:48.805 INFO  (main) [   ] o.a.s.m.r.SolrJmxReporter JMX monitoring for 'solr.jetty' (registry 'solr.jetty') enabled at server: com.sun.jmx.mbeanserver.JmxMBeanServer@b62d79
+2022-04-08 11:30:48.870 INFO  (main) [   ] o.a.s.c.CorePropertiesLocator Found 1 core definitions underneath E:\epwk-storage\dev\solr_home\7_6_0
+2022-04-08 11:30:48.874 INFO  (main) [   ] o.a.s.c.CorePropertiesLocator Cores are: [test_service]
+2022-04-08 11:30:48.893 INFO  (coreLoadExecutor-9-thread-1) [   x:test_service] o.a.s.c.SolrResourceLoader [null] Added 8 libs to classloader, from paths: [/E:/epwk-storage/dev/solr_home/7_6_0/test_service/lib]
+2022-04-08 11:30:49.225 INFO  (coreLoadExecutor-9-thread-1) [   x:test_service] o.a.s.c.SolrResourceLoader [test_service] Added 57 libs to classloader, from paths: [/E:/OpenSource/zip/solr-7.6.0/contrib/extraction/lib, /E:/OpenSource/zip/solr-7.6.0/contrib/langid/lib, /E:/OpenSource/zip/solr-7.6.0/contrib/velocity/lib, /E:/OpenSource/zip/solr-7.6.0/dist, /E:/epwk-storage/dev/solr_home/7_6_0/test_service/lib]
+2022-04-08 11:30:49.291 INFO  (coreLoadExecutor-9-thread-1) [   x:test_service] o.a.s.u.SolrIndexConfig IndexWriter infoStream solr logging is enabled
+2022-04-08 11:30:49.298 INFO  (coreLoadExecutor-9-thread-1) [   x:test_service] o.a.s.c.SolrConfig Using Lucene MatchVersion: 8.11.1
+2022-04-08 11:30:49.518 INFO  (coreLoadExecutor-9-thread-1) [   x:test_service] o.a.s.s.IndexSchema [test_service] Schema name=service
+2022-04-08 11:30:49.606 WARN  (coreLoadExecutor-9-thread-1) [   x:test_service] o.a.s.c.SolrResourceLoader Solr loaded a deprecated plugin/analysis class [solr.TrieIntField]. Please consult documentation how to replace it accordingly.
+2022-04-08 11:30:49.619 WARN  (coreLoadExecutor-9-thread-1) [   x:test_service] o.a.s.c.SolrResourceLoader Solr loaded a deprecated plugin/analysis class [solr.TrieFloatField]. Please consult documentation how to replace it accordingly.
+2022-04-08 11:30:49.629 WARN  (coreLoadExecutor-9-thread-1) [   x:test_service] o.a.s.c.SolrResourceLoader Solr loaded a deprecated plugin/analysis class [solr.TrieLongField]. Please consult documentation how to replace it accordingly.
+2022-04-08 11:30:49.638 WARN  (coreLoadExecutor-9-thread-1) [   x:test_service] o.a.s.c.SolrResourceLoader Solr loaded a deprecated plugin/analysis class [solr.TrieDoubleField]. Please consult documentation how to replace it accordingly.
+2022-04-08 11:30:49.844 WARN  (coreLoadExecutor-9-thread-1) [   x:test_service] o.a.s.c.SolrResourceLoader Solr loaded a deprecated plugin/analysis class [solr.LatLonType]. Please consult documentation how to replace it accordingly.
+2022-04-08 11:30:50.020 INFO  (main) [   ] o.e.j.s.h.ContextHandler Started o.e.j.w.WebAppContext@58a120b0{/solr,file:///E:/OpenSource/solr-7.6.0/solr/webapp/web/,AVAILABLE}{E:\OpenSource\solr-7.6.0/solr/webapp/web}
+2022-04-08 11:30:50.050 INFO  (main) [   ] o.e.j.s.AbstractConnector Started ServerConnector@6411d3c8{HTTP/1.1,[http/1.1]}{0.0.0.0:8888}
+2022-04-08 11:30:50.051 INFO  (main) [   ] o.e.j.s.Server Started @15828ms
+2022-04-08 11:30:51.839 INFO  (coreLoadExecutor-9-thread-1) [   x:test_service] o.a.s.s.IndexSchema Loaded schema service/1.6 with uniqueid field service_id
+2022-04-08 11:30:51.887 INFO  (coreLoadExecutor-9-thread-1) [   x:test_service] o.a.s.c.CoreContainer Creating SolrCore 'test_service' using configuration from instancedir E:\epwk-storage\dev\solr_home\7_6_0\test_service, trusted=true
+2022-04-08 11:30:51.935 INFO  (coreLoadExecutor-9-thread-1) [   x:test_service] o.a.s.m.r.SolrJmxReporter JMX monitoring for 'solr.core.test_service' (registry 'solr.core.test_service') enabled at server: com.sun.jmx.mbeanserver.JmxMBeanServer@b62d79
+2022-04-08 11:30:51.974 INFO  (coreLoadExecutor-9-thread-1) [   x:test_service] o.a.s.c.SolrCore [[test_service] ] Opening new SolrCore at [E:\epwk-storage\dev\solr_home\7_6_0\test_service], dataDir=[E:\epwk-storage\dev\solr_home\7_6_0\test_service\data\]
+2022-04-08 11:30:52.066 INFO  (coreLoadExecutor-9-thread-1) [   x:test_service] o.a.s.r.XSLTResponseWriter xsltCacheLifetimeSeconds=5
+2022-04-08 11:30:55.057 ERROR (main) [   ] o.e.j.s.StartSolrJetty --------------------------
+2022-04-08 11:31:00.066 ERROR (main) [   ] o.e.j.s.StartSolrJetty --------------------------
+2022-04-08 11:31:02.826 WARN  (coreLoadExecutor-9-thread-1) [   x:test_service] c.e.w.r.ReRankingHandler plus-init args:{defaultPageSize=5,limitPageNo=100,wt=json-plus,baseSolrUrls=http://localhost:8888/solr/test_service}
+2022-04-08 11:31:02.882 INFO  (coreLoadExecutor-9-thread-1) [   x:test_service] o.a.s.u.UpdateHandler Using UpdateLog implementation: org.apache.solr.update.UpdateLog
+2022-04-08 11:31:02.882 INFO  (coreLoadExecutor-9-thread-1) [   x:test_service] o.a.s.u.UpdateLog Initializing UpdateLog: dataDir= defaultSyncLevel=FLUSH numRecordsToKeep=100 maxNumLogsToKeep=10 numVersionBuckets=65536
+2022-04-08 11:31:02.922 INFO  (coreLoadExecutor-9-thread-1) [   x:test_service] o.a.s.u.CommitTracker Hard AutoCommit: if uncommitted for 15000ms; 
+2022-04-08 11:31:02.923 INFO  (coreLoadExecutor-9-thread-1) [   x:test_service] o.a.s.u.CommitTracker Soft AutoCommit: disabled
+2022-04-08 11:31:03.136 INFO  (coreLoadExecutor-9-thread-1) [   x:test_service] o.a.s.s.SolrIndexSearcher Opening [Searcher@135ea540[test_service] main]
+2022-04-08 11:31:03.161 INFO  (coreLoadExecutor-9-thread-1) [   x:test_service] o.a.s.r.ManagedResourceStorage File-based storage initialized to use dir: E:\epwk-storage\dev\solr_home\7_6_0\test_service\conf
+2022-04-08 11:31:03.198 INFO  (coreLoadExecutor-9-thread-1) [   x:test_service] o.a.s.h.c.SpellCheckComponent Initializing spell checkers
+2022-04-08 11:31:03.224 INFO  (coreLoadExecutor-9-thread-1) [   x:test_service] o.a.s.s.DirectSolrSpellChecker init: {name=default,field=text,classname=solr.DirectSolrSpellChecker,distanceMeasure=internal,accuracy=0.5,maxEdits=2,minPrefix=1,maxInspections=5,minQueryLength=4,maxQueryFrequency=0.01}
+2022-04-08 11:31:03.246 INFO  (coreLoadExecutor-9-thread-1) [   x:test_service] o.a.s.h.c.SuggestComponent Initializing SuggestComponent
+2022-04-08 11:31:03.253 INFO  (coreLoadExecutor-9-thread-1) [   x:test_service] o.a.s.s.s.SolrSuggester init: {name=mySuggester,lookupImpl=FuzzyLookupFactory,dictionaryImpl=DocumentDictionaryFactory,field=cat,weightField=price,suggestAnalyzerFieldType=string}
+2022-04-08 11:31:03.308 INFO  (coreLoadExecutor-9-thread-1) [   x:test_service] o.a.s.s.s.SolrSuggester Dictionary loaded with params: {name=mySuggester,lookupImpl=FuzzyLookupFactory,dictionaryImpl=DocumentDictionaryFactory,field=cat,weightField=price,suggestAnalyzerFieldType=string}
+2022-04-08 11:31:03.309 INFO  (coreLoadExecutor-9-thread-1) [   x:test_service] o.a.s.h.c.SuggestComponent Registering searcher listener for suggester: mySuggester - SuggesterListener [core=org.apache.solr.core.SolrCore@4302c517, suggester=SolrSuggester [ name=mySuggester, sourceLocation=null, storeDir=, lookupImpl=FuzzyLookupFactory, dictionaryImpl=DocumentDictionaryFactory, sizeInBytes=0 ], buildOnCommit=false, buildOnOptimize=false, buildOnStartup=true, isCoreReload=false]
+2022-04-08 11:31:03.312 INFO  (coreLoadExecutor-9-thread-1) [   x:test_service] o.a.s.h.c.QueryElevationComponent Loading QueryElevation from: E:\epwk-storage\dev\solr_home\7_6_0\test_service\conf\elevate.xml
+2022-04-08 11:31:03.337 INFO  (coreLoadExecutor-9-thread-1) [   x:test_service] o.a.s.h.ReplicationHandler Commits will be reserved for 10000ms.
+2022-04-08 11:31:03.352 INFO  (searcherExecutor-10-thread-1-processing-x:test_service) [   x:test_service] o.a.s.c.QuerySenderListener QuerySenderListener sending requests to Searcher@135ea540[test_service] main{ExitableDirectoryReader(UninvertingDirectoryReader(Uninverting(_c(7.6.0):C20/7:delGen=2) Uninverting(_m(7.6.0):C20/6:delGen=3) Uninverting(_n(7.6.0):C5) Uninverting(_s(7.6.0):C2) Uninverting(_t(7.6.0):C1)))}
+2022-04-08 11:31:03.496 INFO  (searcherExecutor-10-thread-1-processing-x:test_service) [   x:test_service] o.a.s.c.S.Request [test_service]  webapp=null path=null params={q=static+firstSearcher+warming+in+solrconfig.xml&distrib=false&event=firstSearcher} hits=0 status=0 QTime=140
+2022-04-08 11:31:03.497 INFO  (searcherExecutor-10-thread-1-processing-x:test_service) [   x:test_service] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2022-04-08 11:31:03.497 INFO  (searcherExecutor-10-thread-1-processing-x:test_service) [   x:test_service] o.a.s.h.c.SpellCheckComponent Loading spell index for spellchecker: default
+2022-04-08 11:31:03.497 INFO  (searcherExecutor-10-thread-1-processing-x:test_service) [   x:test_service] o.a.s.h.c.SpellCheckComponent Loading spell index for spellchecker: wordbreak
+2022-04-08 11:31:03.497 INFO  (searcherExecutor-10-thread-1-processing-x:test_service) [   x:test_service] o.a.s.h.c.SuggestComponent buildOnStartup: mySuggester
+2022-04-08 11:31:03.497 INFO  (searcherExecutor-10-thread-1-processing-x:test_service) [   x:test_service] o.a.s.s.s.SolrSuggester SolrSuggester.build(mySuggester)
+2022-04-08 11:31:03.547 INFO  (searcherExecutor-10-thread-1-processing-x:test_service) [   x:test_service] o.a.s.c.SolrCore [test_service] Registered new searcher Searcher@135ea540[test_service] main{ExitableDirectoryReader(UninvertingDirectoryReader(Uninverting(_c(7.6.0):C20/7:delGen=2) Uninverting(_m(7.6.0):C20/6:delGen=3) Uninverting(_n(7.6.0):C5) Uninverting(_s(7.6.0):C2) Uninverting(_t(7.6.0):C1)))}
+2022-04-08 11:31:05.071 ERROR (main) [   ] o.e.j.s.StartSolrJetty --------------------------
+2022-04-08 11:31:10.083 ERROR (main) [   ] o.e.j.s.StartSolrJetty --------------------------
+2022-04-08 11:31:15.095 ERROR (main) [   ] o.e.j.s.StartSolrJetty --------------------------
+2022-04-08 11:31:20.103 ERROR (main) [   ] o.e.j.s.StartSolrJetty --------------------------
+2022-04-08 11:31:25.118 ERROR (main) [   ] o.e.j.s.StartSolrJetty --------------------------
+2022-04-08 11:31:30.120 ERROR (main) [   ] o.e.j.s.StartSolrJetty --------------------------
+2022-04-08 11:31:35.149 ERROR (main) [   ] o.e.j.s.StartSolrJetty --------------------------
+2022-04-08 11:31:40.158 ERROR (main) [   ] o.e.j.s.StartSolrJetty --------------------------
+2022-04-08 11:31:45.172 ERROR (main) [   ] o.e.j.s.StartSolrJetty --------------------------
+2022-04-08 11:31:50.173 ERROR (main) [   ] o.e.j.s.StartSolrJetty --------------------------
