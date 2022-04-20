@@ -1,15 +1,10 @@
 package com.lvzr.solr.requesthandler;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.lang.invoke.MethodHandles;
-import java.nio.charset.StandardCharsets;
-import java.util.Optional;
-import java.util.function.Function;
-
 import org.apache.solr.cloud.ZkSolrResourceLoader;
 import org.apache.solr.common.SolrException;
 import org.apache.solr.common.cloud.SolrZkClient;
+import org.apache.solr.common.cloud.ZkConfigManager;
+import org.apache.solr.common.params.CollectionAdminParams;
 import org.apache.solr.common.params.CommonParams;
 import org.apache.solr.common.params.ModifiableSolrParams;
 import org.apache.solr.common.util.ContentStreamBase;
@@ -22,6 +17,14 @@ import org.apache.solr.response.SolrQueryResponse;
 import org.apache.zookeeper.KeeperException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.lang.invoke.MethodHandles;
+import java.nio.charset.StandardCharsets;
+import java.util.Optional;
+import java.util.function.Function;
 
 import static org.apache.solr.handler.admin.ShowFileRequestHandler.USE_CONTENT_TYPE;
 
@@ -121,8 +124,18 @@ public class DynamicDicRequestHandler extends RequestHandlerBase {
 			throws KeeperException, InterruptedException {
 		log.info("Start to writeToZookeeper...");
 		final SolrZkClient zkClient = coreContainer.getZkController().getZkClient();
-		final ZkSolrResourceLoader resourceLoader = (ZkSolrResourceLoader) coreContainer.getResourceLoader();
-		final String configSetZkPath = resourceLoader.getConfigSetZkPath();
+		//  TODO ---
+		final SolrResourceLoader solrResourceLoader = coreContainer.getResourceLoader();
+		final String configSetZkPath;
+		if (solrResourceLoader instanceof ZkSolrResourceLoader) {
+			configSetZkPath = ((ZkSolrResourceLoader) solrResourceLoader).getConfigSetZkPath();
+		} else {
+			log.warn("solrResourceLoader.getConfigDir():{}", solrResourceLoader.getConfigDir());
+			configSetZkPath = ZkConfigManager.CONFIGS_ZKNODE + "/" + MDC.get(CollectionAdminParams.COLLECTION)
+					.replace("c:", "");
+			log.warn("getResourceLoader class:{}", solrResourceLoader.getClass().getName());
+		}
+		// ---
 		final String ikConfFilePath = configSetZkPath + "/ik.conf";
 		if (!zkClient.exists(ikConfFilePath, Boolean.TRUE)) {
 			log.error("Can not find: " + ikConfFilePath);
