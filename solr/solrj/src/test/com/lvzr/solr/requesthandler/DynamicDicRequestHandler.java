@@ -1,5 +1,13 @@
 package com.lvzr.solr.requesthandler;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.lang.invoke.MethodHandles;
+import java.nio.charset.StandardCharsets;
+import java.util.Map;
+import java.util.function.Function;
+
+import org.apache.commons.io.IOUtils;
 import org.apache.solr.cloud.ZkSolrResourceLoader;
 import org.apache.solr.common.SolrException;
 import org.apache.solr.common.cloud.SolrZkClient;
@@ -7,6 +15,7 @@ import org.apache.solr.common.cloud.ZkConfigManager;
 import org.apache.solr.common.params.CollectionAdminParams;
 import org.apache.solr.common.params.CommonParams;
 import org.apache.solr.common.params.ModifiableSolrParams;
+import org.apache.solr.common.util.ContentStream;
 import org.apache.solr.common.util.ContentStreamBase;
 import org.apache.solr.core.CoreContainer;
 import org.apache.solr.core.SolrResourceLoader;
@@ -18,13 +27,6 @@ import org.apache.zookeeper.KeeperException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.lang.invoke.MethodHandles;
-import java.nio.charset.StandardCharsets;
-import java.util.Optional;
-import java.util.function.Function;
 
 import static org.apache.solr.handler.admin.ShowFileRequestHandler.USE_CONTENT_TYPE;
 
@@ -40,17 +42,28 @@ public class DynamicDicRequestHandler extends RequestHandlerBase {
 
 	@Override
 	public void handleRequestBody(SolrQueryRequest req, SolrQueryResponse rsp) throws Exception {
-		final Action action = Action.valueOf(Optional.ofNullable(req.getParams().get("action"))
-				.orElse(Action.WRITE.toString()));
-		switch (action) {
-			case READ:
-				readDicFile(req, rsp);
-				return;
-			case WRITE:
-				writeDicFile(req, rsp);
-				return;
-			default:
+		final Map<Object, Object> context = req.getContext();
+		for (ContentStream cs : req.getContentStreams()) {
+//			final InputStream stream = cs.getStream();
+//			try (final ByteArrayOutputStream baos = new ByteArrayOutputStream(stream.available())) {
+//				IOUtils.copy(stream, baos);
+//				System.out.println(baos.toString(StandardCharsets.UTF_8.name()));
+//			}
+			final String json = IOUtils.toString(cs.getReader());
+			System.out.println(json);
 		}
+		log.info("context:{}", context);
+//		final Action action = Action.valueOf(Optional.ofNullable(req.getParams().get("action"))
+//				.orElse(Action.WRITE.toString()));
+//		switch (action) {
+//			case READ:
+//				readDicFile(req, rsp);
+//				return;
+//			case WRITE:
+//				writeDicFile(req, rsp);
+//				return;
+//			default:
+//		}
 	}
 
 	private void readDicFile(SolrQueryRequest req, SolrQueryResponse rsp) throws Exception {
@@ -171,10 +184,15 @@ public class DynamicDicRequestHandler extends RequestHandlerBase {
 		for (int i = 0; i < digitalCnt; i++) {
 			final char digital = digitalArr[i];
 			//  TODO-LVZR: (int)'0'=48
-			version += Math.multiplyExact(((int) digital - (int) '0'), (long) Math.pow(10, digitalCnt - i));
+			version += Math.multiplyExact(((int) digital - (int) '0'), (long) Math.pow(10, digitalCnt - i -1));
 		}
+		//  TODO: (version+1)无效
+//			return originalData.replace(keyword + version,
+//					keyword + (version + 1)).getBytes(StandardCharsets.UTF_8);
+		log.warn("version:{}", version);
+		final long newVersion = version + 1;
 		return originalData.replace(keyword + version,
-				keyword + (version + 1)).getBytes(StandardCharsets.UTF_8);
+				keyword + newVersion).getBytes(StandardCharsets.UTF_8);
 	};
 
 	@Deprecated
@@ -197,7 +215,7 @@ public class DynamicDicRequestHandler extends RequestHandlerBase {
 			for (int i = 0; i < digitalCnt; i++) {
 				final char digital = digitalArr[i];
 				//  TODO-LVZR: (int)'0'=48
-				version += Math.multiplyExact(((int) digital - (int) '0'), (long) Math.pow(10, digitalCnt - i));
+				version += Math.multiplyExact(((int) digital - (int) '0'), (long) Math.pow(10, digitalCnt - i -1));
 			}
 			return originalData.replace(keyword + version,
 					keyword + (version + 1)).getBytes(StandardCharsets.UTF_8);
@@ -241,7 +259,7 @@ public class DynamicDicRequestHandler extends RequestHandlerBase {
 			for (int i = 0; i < digitalCnt; i++) {
 				final char digital = digitalArr[i];
 				//  TODO-LVZR: (int)'0'=48
-				version += Math.multiplyExact(((int) digital - (int) '0'), (long) Math.pow(10, digitalCnt - i));
+				version += Math.multiplyExact(((int) digital - (int) '0'), (long) Math.pow(10, digitalCnt - i -1));
 			}
 			return originalData.replace(keyword + version,
 					keyword + (version + 1)).getBytes(StandardCharsets.UTF_8);
