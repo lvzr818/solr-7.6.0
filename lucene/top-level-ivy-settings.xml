@@ -21,4 +21,5 @@
   <properties file="${ivy.settings.dir}/ivy-versions.properties" override="false"/>
   <!-- Include the Ivy settings file pointed to by the "ivysettings.xml" property. -->
   <include file="${ivysettings.xml}"/>
+  <!-- <include file="./ivy_cfg/ivysettings.xml"/> -->
 </ivysettings>

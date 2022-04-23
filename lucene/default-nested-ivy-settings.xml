@@ -17,44 +17,55 @@
    under the License.
 -->
 <ivysettings>
-  <!-- This file is included by default by top-level-ivy-settings.xml,
+    <!-- This file is included by default by top-level-ivy-settings.xml,
        which loads ivy-versions.properties as Ivy variables.          -->
+    <settings defaultResolver="default" />
 
-  <settings defaultResolver="default"/>
+    <!-- TODO-LVZR -->
+    <!-- configure caches -->
+    <!-- <caches repositoryCacheDir="D:/opt/.ivy2/cache"> -->
+    <caches defaultCacheDir="D:/opt/.ivy2/cache">
+        <!-- do not cache from local .m2-->
+        <cache name="nocache" useOrigin="true" />
+        <cache name="default" />
+    </caches>
 
-  <property name="local-maven2-dir" value="${user.home}/.m2/repository/" />
+    <!-- TODO-LVZR -->
+    <!-- <property name="local-maven2-dir" value="${user.home}/.m2/repository/" /> -->
+    <property name="local-maven2-dir" value="D:/opt/.m2/repository/" />
+    <property name="m2-pattern" value="${local-maven2-dir}/[organisation]/[module]/[revision]/[module]-[revision](-[classifier]).[ext]" override="false" />
 
-  <include url="${ivy.default.settings.dir}/ivysettings-public.xml"/>
-  <include url="${ivy.default.settings.dir}/ivysettings-shared.xml"/>
-  <include url="${ivy.default.settings.dir}/ivysettings-local.xml"/>
-  <include url="${ivy.default.settings.dir}/ivysettings-main-chain.xml"/>
+    <include url="${ivy.default.settings.dir}/ivysettings-public.xml" />
+    <include url="${ivy.default.settings.dir}/ivysettings-shared.xml" />
+    <include url="${ivy.default.settings.dir}/ivysettings-local.xml" />
+    <include url="${ivy.default.settings.dir}/ivysettings-main-chain.xml" />
+    <caches lockStrategy="${ivy.lock-strategy}" resolutionCacheDir="${ivy.resolution-cache.dir}" />
+    <resolvers>
+        <!-- TODO-LVZR -->
+        <ibiblio name="aliyun-repo" root="https://maven.aliyun.com/repository/public/" m2compatible="true" />
 
-  <caches lockStrategy="${ivy.lock-strategy}" resolutionCacheDir="${ivy.resolution-cache.dir}" />
+        <ibiblio name="sonatype-releases" root="https://oss.sonatype.org/content/repositories/releases" m2compatible="true" />
+        <ibiblio name="maven.restlet.org" root="http://maven.restlet.org" m2compatible="true" />
+        <ibiblio name="releases.cloudera.com" root="http://repository.cloudera.com/content/repositories/releases" m2compatible="true" />
+        <!-- you might need to tweak this from china so it works -->
+        <ibiblio name="working-chinese-mirror" root="http://uk.maven.org/maven2" m2compatible="true" />
 
-  <resolvers>
-    <ibiblio name="sonatype-releases" root="https://oss.sonatype.org/content/repositories/releases" m2compatible="true" />
-    <ibiblio name="maven.restlet.org" root="http://maven.restlet.org" m2compatible="true" />
-    <ibiblio name="releases.cloudera.com" root="http://repository.cloudera.com/content/repositories/releases" m2compatible="true" />
+        <!-- TODO-LVZR -->
+        <!-- <filesystem name="local-maven-2" m2compatible="true" local="true">
+            <artifact pattern="${m2-pattern}" />
+            <ivy pattern="${m2-pattern}" />
+        </filesystem> -->
 
-    <!-- you might need to tweak this from china so it works -->
-    <ibiblio name="working-chinese-mirror" root="http://uk.maven.org/maven2" m2compatible="true" />
+        <chain name="default" returnFirst="true" checkmodified="true" changingPattern=".*SNAPSHOT">
+            <!-- TODO-LVZR -->
+            <!-- <resolver ref="local"/> -->
+            <resolver ref="aliyun-repo" />
+            <!-- <resolver ref="main"/> -->
 
-    <filesystem name="local-maven-2" m2compatible="true" local="true">
-      <artifact
-          pattern="${local-maven2-dir}/[organisation]/[module]/[revision]/[module]-[revision].[ext]" />
-      <ivy
-          pattern="${local-maven2-dir}/[organisation]/[module]/[revision]/[module]-[revision].pom" />
-    </filesystem>
-
-    <chain name="default" returnFirst="true" checkmodified="true" changingPattern=".*SNAPSHOT">
-      <resolver ref="local"/>
-      <!-- <resolver ref="local-maven-2" /> -->
-      <resolver ref="main"/>
-      <resolver ref="maven.restlet.org" />
-      <resolver ref="sonatype-releases" />
-      <resolver ref="releases.cloudera.com"/>
-      <resolver ref="working-chinese-mirror" />
-    </chain>
-  </resolvers>
-
+            <resolver ref="maven.restlet.org" />
+            <resolver ref="sonatype-releases" />
+            <resolver ref="releases.cloudera.com" />
+            <resolver ref="working-chinese-mirror" />
+        </chain>
+    </resolvers>
 </ivysettings>
