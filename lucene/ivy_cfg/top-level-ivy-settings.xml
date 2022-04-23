@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!--
    Licensed to the Apache Software Foundation (ASF) under one
    or more contributor license agreements.  See the NOTICE file
@@ -17,17 +16,10 @@
    specific language governing permissions and limitations
    under the License.    
 -->
-<ivy-module version="2.0">
-  <info organisation="org.apache.lucene" module="test-framework" revision="working@DESKTOP-E8KAAJA" status="integration" publication="20181208044706"/>
-
-  <configurations defaultconfmapping="compile->master">
-    <conf name="compile" transitive="false"/>
-  </configurations>
-
-  <dependencies>
-    <dependency org="junit" name="junit" rev="4.10" conf="compile"/>
-    <dependency org="com.carrotsearch.randomizedtesting" name="randomizedtesting-runner" rev="2.6.4" conf="compile"/>
-
-    <exclude org="*" ext="*" matcher="regexp" type="source|javadoc"/> 
-  </dependencies>
-</ivy-module>
+<ivysettings>
+  <!-- Load ivy-versions.properties as Ivy variables. -->
+  <properties file="${ivy.settings.dir}/ivy-versions.properties" override="false"/>
+  <!-- Include the Ivy settings file pointed to by the "ivysettings.xml" property. -->
+  <!-- <include file="${ivysettings.xml}"/> -->
+  <include file="D:/opt/.ivy2/ivysettings.xml"/>
+</ivysettings>
