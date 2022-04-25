@@ -186,7 +186,7 @@ public class DynamicDicRequestHandler extends RequestHandlerBase {
 			//  TODO-LVZR: (int)'0'=48
 			version += Math.multiplyExact(((int) digital - (int) '0'), (long) Math.pow(10, digitalCnt - i -1));
 		}
-		//  TODO: (version+1)无效
+		//  TODO: (version+1)有效；"..." + (version++)无效
 //			return originalData.replace(keyword + version,
 //					keyword + (version + 1)).getBytes(StandardCharsets.UTF_8);
 		log.warn("version:{}", version);
